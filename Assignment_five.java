@@ -6,8 +6,12 @@ import javax.swing.*;
  * @author Luis Berdecia
  * @version 1 created on 5/13/2020 at 6:00PM
  * 
- * The following program will show the user the different thing you can do with
- * JTextField and JPasswordField Class.
+ * Create a program to demonstrate the JTextField class
+ * Construct four text fields, text field one with 10 columns, text field two with default text, 
+ * text field three with default text and 21 columns, password field with default text.
+ * Add all the above text fields to JFrame.
+ * Create an inner class for event handling then instantiate an object from the inner class.
+ * When user types in any text field or password field, then presses Enter, an event occurs.
  *
  */
 
@@ -28,10 +32,8 @@ public class Assignment_five
 	//Launcher
 	public static void main(String [] args)
 	{
-	
 		new Assignment_five();
 	
-
 	}//main
 	
 	
@@ -44,7 +46,7 @@ public class Assignment_five
 	}//Constructor
 	
 	
-	
+	//This method will create the GUI for the program
 	public void createGui()
 	{
 
@@ -56,7 +58,7 @@ public class Assignment_five
 		
 		field3.setEditable(false); // Makes it so the JTextfield will not be edited
 		
-		//Adding the Textfields to the JPanel
+		//Adding the Textfields and PasswordField to the JPanel
 		panel.add(field1);
 		panel.add(field2);
 		panel.add(field3);
@@ -65,69 +67,22 @@ public class Assignment_five
 		//Adding the Panel to the JFrame
 		window.add(panel);
 		
-		//Sets up the ActionListener and ActionCommand for all the JTextField and JPasswordField
-		field1.setActionCommand("field1");
-		field1.addActionListener(e -> JOptionPane.showMessageDialog(null, "TextField1: "+ field1.getText()));
+		//Sets up the ActionListener for all the JTextField and JPasswordField
+		try
+		{
+			field1.addActionListener(e -> JOptionPane.showMessageDialog(null, "TextField1: "+ field1.getText()));
+			field2.addActionListener(e -> JOptionPane.showMessageDialog(null, "TextField2: "+ field2.getText()));
+			field3.addActionListener(e -> JOptionPane.showMessageDialog(null, "TextField3: "+ field3.getText()));
+			password.addActionListener(e -> JOptionPane.showMessageDialog(null, "PasswordField: "+ password.getText())); //getText() will show deprecated but it still works 
+		}//try
 		
-		field2.setActionCommand("field2");
-		field2.addActionListener(eventHandler);
-		
-		field3.setActionCommand("field3");
-		field3.addActionListener(eventHandler);
-		
-		password.setActionCommand("password");
-		password.addActionListener(eventHandler);
-		
+		catch(Exception e)
+		{
+			JOptionPane.showMessageDialog(null,"oops...Something went wrong. Please Close the Program and Try again!");
+		}//catch
+	
+
 	}//createGui
 	
-	
-	/**
-	 * 
-	 * @author Luis Berdecia
-	 * 
-	 * The following class will be handling all the events of the JTextField and JPasswordField
-	 * 
-	 * Using a switch statement it will assing each JTextField and JPassword field a command that will allow each one of them to perform a unique action
-	 * using JOptionPane.
-	 *
-	 */
-	public class EventHandler implements ActionListener
-	{
-
-		public void actionPerformed(ActionEvent e)
-		{
-			 
-			String field = e.getActionCommand();
-			String message;
-			
-			try 
-			{
-				
-			
-				switch(field)
-				{
-			
-					//case "field1":   message = field1.getText(); JOptionPane.showMessageDialog(null, "TextField1: "+ message);break; 
-					case "field2":   message = field2.getText(); JOptionPane.showMessageDialog(null, "TextField2: "+ message);break; 
-					case "field3":   message = field3.getText(); JOptionPane.showMessageDialog(null, "TextField3: "+ message);break; 
-					case "password": message = password.getText(); JOptionPane.showMessageDialog(null, "PasswordField: "+ message);break; 
-			
-				}//switch
-				
-			}//try
-			
-			catch(Exception ex)
-			{
-				JOptionPane.showMessageDialog(null,"oops...Something went wrong. Please Close the Program and Try again!");
-			}
-			
-			
-		}//actionPerformed
-		
-		
-		
-	}//EventHandler
-
-
 	
 }//Assignment_five
