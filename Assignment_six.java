@@ -12,6 +12,8 @@ import javax.swing.event.ListSelectionListener;
  *  The following program demonstrates selecting items in a list. 
  *  The program will use a combo box to specify a selection mode, that when you select items, they will be displayed in a label below the list.
  *
+ *  Prompt: Write a program that demonstrates selecting items in a list. 
+ *  The program uses a combo box to specify a selection mode. When you select items, they are displayed in a label below the list.
  */
 public class Assignment_six 
 {
