@@ -1,7 +1,7 @@
 /**
  * 
  * @author Luis Berdecia
- * Created on: 5/13/2020 at 2:20PM
+ * Created on: 5/13/2020
  * 
  * The goal of this program is to find the max element in each of the arrays given using a generic method.
  *
@@ -68,7 +68,7 @@ public class Assignment_three
 		
 		catch(IndexOutOfBoundsException e)
 		{
-			
+
 			 System.out.println("\nException thrown : " + e); 
 			
 		}//catch
